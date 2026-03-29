@@ -2,6 +2,9 @@
 
 Contest Sync for GitHub is a Chrome extension for syncing competitive programming submissions to a GitHub repository you choose.
 
+Repository:
+`https://github.com/SiddharthSingh9018/leetcode-codechef-codeforces-neetcode-sync`
+
 ## Why This Extension Exists
 
 This project started from the older `CodeSync` extension, but that codebase was built around an older CodeChef UI and older source-fetch flow. Modern CodeChef pages often use a different setup, especially around accepted submissions and `viewsolution` pages, so the original extension can fail even when your submission is correct.
