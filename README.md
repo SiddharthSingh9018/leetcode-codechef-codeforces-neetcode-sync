@@ -1,53 +1,55 @@
+# Contest Sync for GitHub
 
-# CodeSync
-
-CodeSync is a simple and fast Chrome extension that automatically syncs your CodeChef solution to Github upon a successful submission. It captures the problem details, your submitted code, and performance metrics, then uploads them to GitHub.
+Contest Sync for GitHub is a Chrome extension that uploads accepted CodeChef and Codeforces solutions to a GitHub repository you choose.
 
 ## Features
 
-- Automatically detects when you submit a solution on CodeChef
-- Extracts problem statement, difficulty, and your solution details
-- Creates a README.md file for each problem with problem details
-- Uploads your solution code to a specified GitHub repository
-- Provides status updates within the CodeChef interface
+- Syncs accepted Codeforces submissions from problem pages
+- Syncs accepted CodeChef submissions from problem pages
+- Adds a direct fallback sync flow on CodeChef `viewsolution` pages
+- Uploads the solution file and a `README.md` for each problem
+- Stores handles and GitHub settings in Chrome storage instead of hardcoding them
+- Shows clearer error messages for missing settings, token issues, and source-read failures
 
-## Files
+## Project Files
 
-The extension consists of two main files:
+- `manifest.json`: Chrome extension metadata and permissions
+- `content.js`: Site integration and GitHub upload logic
+- `options.html`: Settings page
+- `options.js`: Settings page behavior
 
-1. `manifest.json`: The extension's configuration file
-2. `content.js`: The main script that runs on CodeChef pages
 ## Setup
 
-1. Clone this repository or download the files.
-2. Open Chrome and go to `chrome://extensions/`.
-3. Enable "Developer mode" in the top right corner.
-4. Click "Load unpacked" and select the directory containing these files.
-5. The extension should now be active in your Chrome browser.
-
-## Configuration
-
-Before using the extension, you need to set up a few things:
-
-1. Create a GitHub personal access token with repo scope.
-2. In the `content.js` file, replace the placeholder values for:
-   - `GITHUB_API_TOKEN`
-   - `GITHUB_REPO_OWNER`
-   - `GITHUB_REPO_NAME`
+1. Clone or download this repository.
+2. Open `chrome://extensions/` in Google Chrome.
+3. Turn on `Developer mode`.
+4. Click `Load unpacked`.
+5. Select this extension folder.
+6. Open `Extension options`.
+7. Fill in:
+   - your CodeChef handle
+   - your Codeforces handle
+   - your GitHub owner
+   - your GitHub repository
+   - a GitHub personal access token with `repo` access
+8. Save the settings.
 
 ## Usage
 
-1. Check if the CodeSync Active message is displayed beside the submit button, if not refresh the page/extension.
-2. Solve a problem on CodeChef.
-3. Submit your solution.
-4. The extension will automatically detect your submission and start the sync process.
-5. You'll see status updates on the CodeChef page indicating the progress.
-6. Check your GitHub repository to see the uploaded solution and README.
+### Codeforces
+
+1. Open a Codeforces problem page.
+2. Click `Sync latest accepted`.
+
+### CodeChef
+
+1. Open a CodeChef problem page.
+2. Submit an accepted solution, or use the manual sync button after acceptance.
+3. If the normal problem-page sync cannot read the source, open the CodeChef `viewsolution/<submission-id>` page and use `Sync this viewsolution page`.
 
 ## Notes
 
-- The extension is only active when the CodeSync Active message is displayed.
-- The extension currently works for CodeChef problems only.
-- Ensure you have the necessary permissions to push to the specified GitHub repository.
-- The extension uses the GitHub API, so be mindful of rate limits.
-- For any errors, check out the console.
+- The extension only syncs accepted submissions.
+- You must be logged in to the contest site in the same Chrome profile.
+- GitHub tokens are stored in Chrome extension storage on your machine.
+- This project started from an older CodeSync codebase and was updated for current CodeChef and Codeforces flows.

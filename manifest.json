@@ -1,15 +1,39 @@
 {
-    "manifest_version": 3,
-    "name": "CodeSync",
-    "version": "1.0",
-    "description": "Automatically uploads the code from CodeChef to Github on every successful submission.",
-    "permissions": [
-      "activeTab"
-    ],
-    "content_scripts": [
-      {
-        "matches": ["https://www.codechef.com/practice/*"],
-        "js": ["content.js"]
-      }
-    ]
-  }
+  "manifest_version": 3,
+  "name": "Contest Sync for GitHub",
+  "version": "3.0.0",
+  "description": "Sync accepted CodeChef and Codeforces submissions to a GitHub repository.",
+  "homepage_url": "https://github.com/SiddharthSingh9018",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "https://*.codeforces.com/*",
+    "https://www.codechef.com/*",
+    "https://api.github.com/*"
+  ],
+  "options_page": "options.html",
+  "content_scripts": [
+    {
+      "matches": [
+        "https://codeforces.com/problemset/problem/*",
+        "https://codeforces.com/contest/*/problem/*",
+        "https://codeforces.com/gym/*/problem/*",
+        "https://m1.codeforces.com/problemset/problem/*",
+        "https://m1.codeforces.com/contest/*/problem/*",
+        "https://m1.codeforces.com/gym/*/problem/*",
+        "https://m2.codeforces.com/problemset/problem/*",
+        "https://m2.codeforces.com/contest/*/problem/*",
+        "https://m2.codeforces.com/gym/*/problem/*",
+        "https://m3.codeforces.com/problemset/problem/*",
+        "https://m3.codeforces.com/contest/*/problem/*",
+        "https://m3.codeforces.com/gym/*/problem/*",
+        "https://www.codechef.com/*"
+      ],
+      "js": [
+        "content.js"
+      ]
+    }
+  ]
+}

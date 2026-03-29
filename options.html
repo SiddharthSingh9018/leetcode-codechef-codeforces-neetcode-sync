@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Contest Sync Settings</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 24px;
+      max-width: 640px;
+      color: #222;
+    }
+
+    h1 {
+      margin-bottom: 8px;
+    }
+
+    p {
+      color: #444;
+    }
+
+    label {
+      display: block;
+      font-weight: 600;
+      margin-top: 16px;
+      margin-bottom: 6px;
+    }
+
+    input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border: 1px solid #cfd6e4;
+      border-radius: 6px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 14px;
+      border: 1px solid #2d6cdf;
+      background: #2d6cdf;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    #status {
+      margin-top: 14px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Contest Sync Settings</h1>
+  <p>Save your contest handles and the GitHub repository where accepted solutions should be uploaded.</p>
+
+  <label for="codechefHandle">CodeChef handle</label>
+  <input id="codechefHandle" type="text" placeholder="your-codechef-handle">
+
+  <label for="codeforcesHandle">Codeforces handle</label>
+  <input id="codeforcesHandle" type="text" placeholder="your-codeforces-handle">
+
+  <label for="githubOwner">GitHub owner</label>
+  <input id="githubOwner" type="text" placeholder="your-github-username">
+
+  <label for="githubRepo">GitHub repository</label>
+  <input id="githubRepo" type="text" placeholder="competitive-programming-solutions">
+
+  <label for="githubToken">GitHub personal access token</label>
+  <input id="githubToken" type="password" placeholder="ghp_...">
+
+  <button id="saveButton" type="button">Save settings</button>
+  <div id="status"></div>
+
+  <script src="options.js"></script>
+</body>
+</html>
